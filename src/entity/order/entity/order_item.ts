@@ -1,7 +1,7 @@
 export default class OrderItem {
-  private _id: string;
-  private _name: string;
   private _price: number;
+  private _name: string;
+  private _id: string;
 
   constructor(id: string, name: string, price: number) {
     this._id = id;

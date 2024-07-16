@@ -1,10 +1,10 @@
 export default class Address {
-  private readonly _street: string;
-  private readonly _number: number;
-  private readonly _zip: string;
-  private readonly _city: string;
-  private readonly _state: string;
   private readonly _country: string;
+  private readonly _number: number;
+  private readonly _street: string;
+  private readonly _state: string;
+  private readonly _city: string;
+  private readonly _zip: string;
 
   constructor(street: string, number: number, zip: string, city: string, state: string, country: string) {
     this._street = street;
