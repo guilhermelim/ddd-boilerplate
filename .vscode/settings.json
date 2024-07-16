@@ -1,0 +1,17 @@
+{
+  // Format
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // Explorer
+  "explorer.fileNesting.patterns": {
+    "package.json": "package-lock*, yarn.lock, tsconfig*, .nvmrc*",
+    "eslint*": ".prettierrc, .editorconfig",
+    ".prettierrc": ".prettierignore",
+    "*.ts": "$(capture).spec.ts, $(capture).test.ts",
+    "*.js": "$(capture).spec.js, $(capture).test.js",
+    "README.md": "LICENSE"
+  }
+}
