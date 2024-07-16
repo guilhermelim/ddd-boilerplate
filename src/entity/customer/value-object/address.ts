@@ -6,14 +6,7 @@ export default class Address {
   private readonly _state: string;
   private readonly _country: string;
 
-  constructor(
-    street: string,
-    number: number,
-    zip: string,
-    city: string,
-    state: string,
-    country: string
-  ) {
+  constructor(street: string, number: number, zip: string, city: string, state: string, country: string) {
     this._street = street;
     this._number = number;
     this._zip = zip;
@@ -26,27 +19,27 @@ export default class Address {
 
   private validate() {
     if (this._street.length === 0) {
-      throw new Error("Street is required");
+      throw new Error('Street is required');
     }
 
     if (this._number <= 0) {
-      throw new Error("Number must be greater than zero");
+      throw new Error('Number must be greater than zero');
     }
 
     if (this._zip.length === 0) {
-      throw new Error("Zip is required");
+      throw new Error('Zip is required');
     }
 
     if (this._city.length === 0) {
-      throw new Error("City is required");
+      throw new Error('City is required');
     }
 
     if (this._state.length === 0) {
-      throw new Error("State is required");
+      throw new Error('State is required');
     }
 
     if (this._country.length === 0) {
-      throw new Error("Country is required");
+      throw new Error('Country is required');
     }
   }
 
