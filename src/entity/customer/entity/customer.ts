@@ -1,10 +1,10 @@
-import Address from "./value-object/address";
+import Address from '../value-object/address';
 
-class Customer {
+export default class Customer {
   _id: string;
   _name: string;
   _address!: Address;
-  _active: boolean = false;
+  _active = false;
 
   constructor(id: string, name: string) {
     this._id = id;
@@ -15,11 +15,11 @@ class Customer {
 
   validate() {
     if (!this.isValidId(this._id)) {
-      throw new Error("Id is required.");
+      throw new Error('Id is required.');
     }
 
     if (!this.isValidFullName(this._name)) {
-      throw new Error("Full name is required.");
+      throw new Error('Full name is required.');
     }
   }
 
@@ -34,7 +34,7 @@ class Customer {
 
   activate() {
     if (!this.isValidAddress(this._address)) {
-      throw new Error("Address is mandatory to activate a customer.");
+      throw new Error('Address is mandatory to activate a customer.');
     }
     this._active = true;
   }
@@ -57,4 +57,4 @@ class Customer {
   }
 }
 
-const guilherme = new Customer("1", "Guilherme Lima");
+// const guilherme = new Customer('1', 'Guilherme Lima');
