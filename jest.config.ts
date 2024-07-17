@@ -6,11 +6,9 @@
 import type { Config } from 'jest';
 
 const config: Config = {
-  // Configure Jest to use SWC
-  transform: {
-    '^.+\\.(t|j)sx?$': '@swc/jest',
-  },
-
+  // The glob patterns Jest uses to detect test files
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/src/**/?(*.)+(spec|test).[tj]s?(x)'],
+  // testMatch: ['<rootDir>/src/**/*.test.ts'],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -20,25 +18,27 @@ const config: Config = {
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/tmp/jest_rs",
 
-  // Automatically clear mock calls, instances, contexts and results before every test
-  clearMocks: true,
+  // Configure Jest to use SWC
+  transform: {
+    '^.+\\.(t|j)sx?$': '@swc/jest',
+  },
 
-  // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
+  // The directory where Jest should output its coverage files
+  coverageDirectory: 'coverage',
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
-  // The directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  // Indicates which provider should be used to instrument code for coverage
+  coverageProvider: 'v8',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
 
-  // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: 'v8',
+  // Indicates whether the coverage information should be collected while executing the test
+  collectCoverage: true,
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -159,11 +159,8 @@ const config: Config = {
   // Adds a location field to test results
   // testLocationInResults: false,
 
-  // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
-  // ],
+  // Automatically clear mock calls, instances, contexts and results before every test
+  clearMocks: true,
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
