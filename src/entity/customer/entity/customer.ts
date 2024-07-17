@@ -14,7 +14,7 @@ export default class Customer {
   }
 
   private validate() {
-    if (!this.isValidId(this._id)) {
+    if (this._id.length === 0) {
       throw new Error('Id is required.');
     }
 
@@ -30,10 +30,6 @@ export default class Customer {
 
   private isValidAddress(address: Address): boolean {
     return address !== undefined;
-  }
-
-  private isValidId(id: string): boolean {
-    return id.length !== 0;
   }
 
   activate() {

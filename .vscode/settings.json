@@ -5,7 +5,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
 
   // Explorer
@@ -16,5 +16,8 @@
     "*.ts": "$(capture).spec.ts, $(capture).test.ts",
     "*.js": "$(capture).spec.js, $(capture).test.js",
     "README.md": "LICENSE"
-  }
+  },
+
+  // Test
+  "jestrunner.jestCommand": "npm test"
 }

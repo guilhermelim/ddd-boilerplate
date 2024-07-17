@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "tsc": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,mjs,cjs,ts,tsx}'",
-    "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test": "npm run tsc -- --noEmit && jest",
+    "test:watch": "npm run tsc -- --noEmit && jest --watchAll"
   },
   "repository": {
     "type": "git",
