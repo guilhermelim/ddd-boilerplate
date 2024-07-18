@@ -2,6 +2,7 @@ import Address from '../value-object/address';
 
 export default class Customer {
   private _address!: Address;
+  private _rewardPoints = 0;
   private _active = false;
   private _name: string;
   private _id: string;
@@ -44,6 +45,10 @@ export default class Customer {
     this.validate();
   }
 
+  addRewardPoints(points: number) {
+    this._rewardPoints += points;
+  }
+
   changeAddress(address: Address) {
     this._address = address;
   }
@@ -56,7 +61,15 @@ export default class Customer {
     this._active = false;
   }
 
+  get rewardPoints(): number {
+    return this._rewardPoints;
+  }
+
   get name(): string {
     return this._name;
+  }
+
+  get id() {
+    return this._id;
   }
 }
