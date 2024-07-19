@@ -1,7 +1,7 @@
-import Address from './entity/customer/value-object/address';
-import Customer from './entity/customer/entity/customer';
-import OrderItem from './entity/order/entity/order_item';
-import Order from './entity/order/entity/order';
+import Address from './domain/entity/customer/value-object/address';
+import Customer from './domain/entity/customer/entity/customer';
+import OrderItem from './domain/entity/order/entity/order_item';
+import Order from './domain/entity/order/entity/order';
 
 const customer = new Customer('123', 'Guilherme Lima');
 const address = new Address('Rua José Wellington Façanha', 300, '62870-000', 'Pacajus', 'Ceará', 'Brasil');
