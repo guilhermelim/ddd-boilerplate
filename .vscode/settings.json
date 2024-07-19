@@ -10,7 +10,7 @@
 
   // Explorer
   "explorer.fileNesting.patterns": {
-    "package.json": "package-lock*, yarn.lock, tsconfig*, .nvmrc*",
+    "package.json": "package-lock*, yarn.lock, tsconfig*, .nvmrc*, .swcrc",
     "eslint*": ".prettierrc, .editorconfig",
     ".prettierrc": ".prettierignore",
     "*.ts": "$(capture).spec.ts, $(capture).test.ts",

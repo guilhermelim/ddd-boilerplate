@@ -44,4 +44,8 @@ export default class Product {
   get name(): string {
     return this._name;
   }
+
+  get id() {
+    return this._id;
+  }
 }
