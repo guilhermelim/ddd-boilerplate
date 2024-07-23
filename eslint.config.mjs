@@ -9,6 +9,17 @@ import globals from 'globals';
 
 export default [
   { files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'] },
+  {
+    ignores: [
+      '**/node_modules/**',
+      'dist/**',
+      'built/**',
+      'scripts/**/*.js',
+      'scripts/**/*.d.*',
+      'internal/**',
+      'coverage/**',
+    ],
+  },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
