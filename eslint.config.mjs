@@ -17,6 +17,7 @@ export default [
   eslintPluginPrettierRecommended,
   {
     rules: {
+      '@typescript-eslint/no-empty-interface': 'off',
       'perfectionist/sort-interfaces': 'error',
       'prettier/prettier': 'error',
     },
