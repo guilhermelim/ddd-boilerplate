@@ -6,8 +6,19 @@
 import type { Config } from 'jest';
 
 const config: Config = {
-  // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/src/**/?(*.)+(spec|test).[tj]s?(x)'],
+  // Configure Jest to use SWC
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          target: 'es2022',
+        },
+        sourceMaps: true,
+      },
+    ],
+  },
+
   // testMatch: ['<rootDir>/src/**/*.test.ts'],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -18,16 +29,15 @@ const config: Config = {
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/tmp/jest_rs",
 
-  // Configure Jest to use SWC
-  transform: {
-    '^.+\\.(t|j)sx?$': '@swc/jest',
-  },
+  // An array of glob patterns indicating a set of files for which coverage information should be collected
+  // collectCoverageFrom: undefined,
+  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts', '!src/**/*[-.]interface.[tj]s?(x)'],
+
+  // The glob patterns Jest uses to detect test files
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/src/**/?(*.)+(spec|test).[tj]s?(x)'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
-
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
