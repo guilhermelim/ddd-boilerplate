@@ -42,8 +42,10 @@ describe('Unit test for listing customer use case', () => {
     await customerRepository.create(customer1);
     await customerRepository.create(customer2);
 
+    // Execute the list use case
     const output = await useCase.execute({});
 
+    // Checks if the customer was listed correctly
     expect(output.customers.length).toBe(2);
 
     expect(output.customers[0].id).toBe(customer1.id);
