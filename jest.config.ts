@@ -31,7 +31,12 @@ const config: Config = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts', '!src/**/*[-.]interface.[tj]s?(x)'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/**/*[-.]interface.[tj]s?(x)',
+    '!src/**/*[-.]dto.[tj]s?(x)',
+  ],
 
   // The glob patterns Jest uses to detect test files
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/src/**/?(*.)+(spec|test).[tj]s?(x)'],
