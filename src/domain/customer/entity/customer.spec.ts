@@ -6,14 +6,21 @@ describe('Customer unit tests', () => {
     expect(() => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const customer = new Customer('', 'John Wick');
-    }).toThrow('Id is required.');
+    }).toThrow(new Error('customer: Id is required.'));
   });
 
   it('should throw error when name is empty', () => {
     expect(() => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const customer = new Customer('1', '');
-    }).toThrow('Full name is required.');
+    }).toThrow(new Error('customer: Full name is required.'));
+  });
+
+  it('should throw error when name is and id are empty', () => {
+    expect(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const customer = new Customer('', '');
+    }).toThrow(new Error('customer: Id is required.,customer: Full name is required.'));
   });
 
   it('should change name', () => {
@@ -37,7 +44,7 @@ describe('Customer unit tests', () => {
     expect(() => {
       const customer = new Customer('1', 'John Wick');
       customer.activate();
-    }).toThrow('Address is mandatory to activate a customer.');
+    }).toThrow(new Error('customer: Address is mandatory to activate a customer.'));
   });
 
   it('should deactivate customer', () => {

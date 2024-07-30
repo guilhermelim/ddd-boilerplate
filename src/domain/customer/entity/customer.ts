@@ -1,26 +1,34 @@
+import Entity from '../../@shared/entity/entity.abstract';
 import Address from '../value-object/address';
 
-export default class Customer {
+export default class Customer extends Entity {
   private _address!: Address;
   private _rewardPoints = 0;
   private _active = false;
   private _name: string;
-  private _id: string;
 
   constructor(id: string, name: string) {
+    super();
     this._id = id;
     this._name = name;
 
     this.validate();
+    this.notification.notify();
   }
 
   private validate() {
     if (this._id.length === 0) {
-      throw new Error('Id is required.');
+      this.notification.addError({
+        message: 'Id is required.',
+        context: 'customer',
+      });
     }
 
     if (!this.isValidFullName(this._name)) {
-      throw new Error('Full name is required.');
+      this.notification.addError({
+        message: 'Full name is required.',
+        context: 'customer',
+      });
     }
   }
 
@@ -35,8 +43,13 @@ export default class Customer {
 
   activate() {
     if (!this.isValidAddress(this._address)) {
-      throw new Error('Address is mandatory to activate a customer.');
+      this.notification.addError({
+        message: 'Address is mandatory to activate a customer.',
+        context: 'customer',
+      });
     }
+    this.notification.notify();
+
     this._active = true;
   }
 
@@ -71,9 +84,5 @@ export default class Customer {
 
   get name(): string {
     return this._name;
-  }
-
-  get id() {
-    return this._id;
   }
 }
