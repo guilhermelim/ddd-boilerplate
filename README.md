@@ -10,10 +10,6 @@ A integração de Domain-Driven Design (DDD) e Clean Architecture oferece uma ab
 
 Dessa forma, os desenvolvedores podem aproveitar os princípios do SOLID para garantir um código limpo e desacoplado, enquanto a orientação a DDD oferece uma base sólida para modelar e gerenciar a complexidade do domínio do negócio. A separação de interesses e a modularidade promovidas por Clean Architecture, combinadas com a riqueza de comportamento e foco no domínio do DDD, criam uma sinergia poderosa que conduz a um desenvolvimento de software mais eficiente e sustentável.
 
-## Aviso
-
-Os recursos e tecnologias descritos neste repositório estão em constante desenvolvimento. No estágio atual, o código boilerplate com os recursos de Domain-Driven Design (DDD) já está disponível. No entanto, ainda estamos trabalhando na implementação completa das camadas de Clean Architecture no projeto. Por favor, acompanhe o progresso do projeto para futuras atualizações e melhorias contínuas.
-
 ## Recursos
 
 - **Estrutura Modular:** Baseada em contextos delimitados (Bounded Contexts), permitindo uma separação clara entre diferentes áreas do domínio.
@@ -28,9 +24,8 @@ Os recursos e tecnologias descritos neste repositório estão em constante desen
 - Node.js
 - TypeScript
 - Express.js
-- TypeORM
+- sequelize-typescript
 - Jest (para testes unitários)
-- Docker (para desenvolvimento e deploy)
 
 ## Estrutura do Projeto
 
@@ -135,7 +130,7 @@ src
 4. Inicie a aplicação:
 
     ```sh
-    npm start
+    npm run dev
     ```
 
 5. Execute os testes:
