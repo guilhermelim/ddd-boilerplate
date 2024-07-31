@@ -1,3 +1,4 @@
+import CustomerValidatorFactory from '../validator/customer.validator.factory';
 import Entity from '../../@shared/entity/entity.abstract';
 import Address from '../value-object/address';
 
@@ -16,29 +17,12 @@ export default class Customer extends Entity {
     this.notification.notify();
   }
 
-  private validate() {
-    if (this._id.length === 0) {
-      this.notification.addError({
-        message: 'Id is required.',
-        context: 'customer',
-      });
-    }
-
-    if (!this.isValidFullName(this._name)) {
-      this.notification.addError({
-        message: 'Full name is required.',
-        context: 'customer',
-      });
-    }
-  }
-
-  private isValidFullName(fullName: string): boolean {
-    const regex = /\s+/;
-    return fullName.trim().length > 0 && regex.test(fullName.trim());
-  }
-
   private isValidAddress(address: Address): boolean {
     return address !== undefined;
+  }
+
+  private validate() {
+    CustomerValidatorFactory.create().validate(this);
   }
 
   activate() {
